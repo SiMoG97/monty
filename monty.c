@@ -1,20 +1,25 @@
 #include "monty.h"
 
+#define MAX_BUFFER_SIZE 256
+
 int main(int argc, char *argv[])
 {
 	FILE *file;
+	char *line = NULL;
+	unsigned int line_num = 1;
+	size_t line_len = 0;
 
-	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file 3a3a3aha\n");		
-		exit(EXIT_FAILURE);
-	}
-	file = fopen(argv[1], "r");
+	check_num_args(argc);
+	file = open_file(argv[1]);
 
-	if (file == NULL)
+	while (getline(&line, &line_len, file) != -1)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
+		printf("%s", line);
+
+		line_num++;
 	}
+	free(line);
+	fclose(file);
 	return (0);
 }
+
