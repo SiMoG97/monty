@@ -28,6 +28,16 @@ void error_handler(stack_t **head, int errno,
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_num);
 	else if (errno == ERROR_ADD)
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_num);
+	else if (errno == ERROR_SUB)
+		fprintf(stderr, "L%u: can't sub, stack too short\n", line_num);
+	else if (errno == ERROR_DIV)
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_num);
+	else if (errno == ERROR_DIV_BY_ZERO)
+		fprintf(stderr, "L%u: division by zero\n", line_num);
+	else if (errno == ERROR_MUL)
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_num);
+	else if (errno == ERROR_MOD)
+		fprintf(stderr, "L%u: can't mod, stack too short\n", line_num);
 
 	free_stack(head);
 	if (line)
