@@ -10,6 +10,22 @@
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	(void) line_number;
-	(void) stack;
+stack_t *tmp;
+
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	{
+		error_handler(stack, ERROR_swap, line_number, NULL, NULL);
+		return;
+	}
+
+	tmp = (*stack)->next->next;
+	(*stack)->next->next = tmp->next;
+	(*stack)->next->prev = tmp;
+	if (tmp->next)
+		tmp->next->prev = (*stack)->next;
+	tmp->next = (*stack)->next;
+	tmp->prev = *stack;
+	(*stack)->next = tmp;
+
+
 }
