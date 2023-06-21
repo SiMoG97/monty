@@ -12,7 +12,7 @@
 
 #define VALID_PUSH	0
 #define ERROR_PUSH	500
-#define ERROR_MALLOC	501 
+#define ERROR_MALLOC	501
 
 
 /**
@@ -59,11 +59,13 @@ void nop(stack_t **stack, unsigned int line_number);
 
 int is_valid_data(char *data);
 bool digits_check(char *str);
-int execute_line(char *op_code, char *data, unsigned int line_number);
+int execute_line(stack_t **head, char *op_code,
+		char *data, unsigned int line_number);
 void check_num_args(int argc);
 FILE *open_file(char *fileName);
-void free_stack(void);
-void error_handler(int errno, unsigned int line_num, char *line);
+void free_stack(stack_t **head);
+void error_handler(stack_t **head, int errno,
+		unsigned int line_num, char *line);
 void (*select_op(char *s))(stack_t **, unsigned int);
 
 

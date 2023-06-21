@@ -2,21 +2,22 @@
 
 /**
   * free_stack - Frees nodes in a doubly linked stack list
+  * @head: Double pointer to the stack
   * Return: Nothing
   */
 
-void free_stack(void)
+void free_stack(stack_t **head)
 {
 	stack_t *curr = NULL;
 
 	if (!head)
 		return;
 
-	curr = head;
+	curr = *head;
 	while (curr)
 	{
-		head = head->next;
+		*head = (*head)->next;
 		free(curr);
-		curr = head;
+		curr = *head;
 	}
 }

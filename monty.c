@@ -1,6 +1,5 @@
 #include "monty.h"
 
-stack_t *head = NULL;
 
 /**
   * main - Entry point
@@ -13,6 +12,7 @@ stack_t *head = NULL;
 
 int main(int argc, char *argv[])
 {
+	stack_t *head = NULL;
 	FILE *file;
 	char *line = NULL, *op_code = NULL, *data = NULL, *delim = " \t\n";
 	unsigned int line_num = 0;
@@ -29,16 +29,16 @@ int main(int argc, char *argv[])
 		if (op_code)
 		{
 			data = strtok(NULL, delim);
-			status = execute_line(op_code, data, line_num);
+			status = execute_line(&head, op_code, data, line_num);
 			if (status != 0)
 			{
 				fclose(file);
-				error_handler(status, line_num, line);
+				error_handler(&head, status, line_num, line);
 			}
 
 		}
 	}
-	free_stack();
+	free_stack(&head);
 	free(line);
 	fclose(file);
 	return (0);
