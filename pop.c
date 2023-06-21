@@ -10,6 +10,14 @@
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
-	(void) line_number;
-	(void) stack;
+	stack_t *next = NULL;
+
+	if ((*stack)->next == NULL)
+		error_handler(stack, ERROR_POP, line_number, NULL, NULL);
+
+	next = (*stack)->next->next;
+	free((*stack)->next);
+	if (next)
+		next->prev = *stack;
+	(*stack)->next = next;
 }
