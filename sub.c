@@ -17,7 +17,7 @@ void sub(stack_t **stack, unsigned int line_number)
 		error_handler(stack, ERROR_SUB, line_number, NULL, NULL);
 	top = *stack;
 	second = (*stack)->next;
-	sum = top->n - second->n;
+	sum = second->n - top->n;
 	second->n = sum;
 
 	top->next = second->next;
