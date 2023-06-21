@@ -15,10 +15,11 @@ void mul(stack_t **stack, unsigned int line_number)
 	int sum = 0;
 
 	if (!(*stack) || !(*stack)->next)
-		error_handler(stack, ERROR_ADD, line_number, NULL, NULL);
+		error_handler(stack, ERROR_MUL, line_number, NULL, NULL);
+
 	top = *stack;
 	second = (*stack)->next;
-	sum = top->n + second->n;
+	sum = top->n * second->n;
 	second->n = sum;
 
 	top->next = second->next;
