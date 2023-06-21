@@ -34,3 +34,13 @@ void error_handler(stack_t **head, int errno,
 		free(line);
 	exit(EXIT_FAILURE);
 }
+/**
+ * pint_er - Prints pint error messages for empty stacks.
+ * @line_number: Line number
+ * Return: EXIT_FAILURE
+ */
+int pint_er(unsigned int line_number)
+{
+	fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+	return (EXIT_FAILURE);
+}

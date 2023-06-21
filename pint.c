@@ -10,6 +10,15 @@
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	(void) line_number;
-	(void) stack;
+if ((*stack)->next == NULL)
+	{
+		set_op_tok_error(pint_er(line_number));
+		return;
+	}
+
+	printf("%d\n", (*stack)->next->n);
+
+
+
+
 }
