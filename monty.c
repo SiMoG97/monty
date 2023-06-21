@@ -28,6 +28,9 @@ int main(int argc, char *argv[])
 		op_code = strtok(line, delim);
 		if (op_code)
 		{
+			if (op_code[0] == '#')
+				continue;
+
 			data = strtok(NULL, delim);
 			status = execute_line(&head, op_code, data, line_num);
 			if (status != 0)
