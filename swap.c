@@ -10,22 +10,16 @@
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-stack_t *tmp;
+	stack_t *top, *second;
 
-	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
-	{
-		error_handler(stack, ERROR_swap, line_number, NULL, NULL);
-		return;
-	}
+	if (!(*stack) || !(*stack)->next)
+		error_handler(stack, ERROR_SWAP, line_number, NULL, NULL);
 
-	tmp = (*stack)->next->next;
-	(*stack)->next->next = tmp->next;
-	(*stack)->next->prev = tmp;
-	if (tmp->next)
-		tmp->next->prev = (*stack)->next;
-	tmp->next = (*stack)->next;
-	tmp->prev = *stack;
-	(*stack)->next = tmp;
+	top = *stack;
+	second = (*stack)->next;
 
+	top->next = second->next;
+	second->next = top;
 
+	*stack = second;
 }
