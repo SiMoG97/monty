@@ -14,6 +14,10 @@
 #define ERROR_PUSH	500
 #define ERROR_MALLOC	501
 #define ERROR_INVALID_INSTRC	502
+#define ERROR_PINT	503
+#define ERROR_POP	504
+#define ERROR_SWAP	505
+#define ERROR_ADD	506
 
 
 /**

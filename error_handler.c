@@ -20,7 +20,15 @@ void error_handler(stack_t **head, int errno,
 		fprintf(stderr, "Error: malloc failed\n");
 	else if (errno == ERROR_INVALID_INSTRC)
 		fprintf(stderr, "L%u: unknown instruction %s\n", line_num, op_code);
-
+	else if (errno == ERROR_PINT)
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_num);
+	else if (errno == ERROR_POP)
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_num);
+	else if (errno == ERROR_SWAP)
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_num);
+	else if (errno == ERROR_ADD)
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_num);
+	
 	free_stack(head);
 	if (line)
 		free(line);
