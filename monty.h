@@ -9,6 +9,11 @@
 #include <unistd.h>
 #include <string.h>
 
+
+#define VALID_PUSH	0
+#define ERROR_PUSH	500
+
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -39,9 +44,9 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void check_num_args(int argc);
-bool digits_check(char *str);
-FILE *open_file(char *fileName);
+
+extern stack_t *head;
+
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
@@ -50,5 +55,12 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+
+int is_valid_data(char *data);
+bool digits_check(char *str);
+int execute_line(char *op_code, char *data, unsigned int line_number);
+void check_num_args(int argc);
+FILE *open_file(char *fileName);
+
 
 #endif
