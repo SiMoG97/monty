@@ -28,5 +28,5 @@ int execute_line(stack_t **head, char *op_code,
 
 		return (0);
 	}
-	return (1);
+	return (ERROR_INVALID_INSTRC);
 }

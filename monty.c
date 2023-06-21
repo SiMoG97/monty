@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 			if (status != 0)
 			{
 				fclose(file);
-				error_handler(&head, status, line_num, line);
+				error_handler(&head, status, line_num, line, op_code);
 			}
 
 		}

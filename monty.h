@@ -13,6 +13,7 @@
 #define VALID_PUSH	0
 #define ERROR_PUSH	500
 #define ERROR_MALLOC	501
+#define ERROR_INVALID_INSTRC	502
 
 
 /**
@@ -65,7 +66,7 @@ void check_num_args(int argc);
 FILE *open_file(char *fileName);
 void free_stack(stack_t **head);
 void error_handler(stack_t **head, int errno,
-		unsigned int line_num, char *line);
+		unsigned int line_num, char *line, char *op_code);
 void (*select_op(char *s))(stack_t **, unsigned int);
 
 
