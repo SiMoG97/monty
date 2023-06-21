@@ -19,10 +19,10 @@ int execute_line(char *op_code, char *data, unsigned int line_number)
 		{
 			if (is_valid_data(data) == ERROR_PUSH)
 				return (ERROR_PUSH);
-			operation(&head, atoi(data))	
+			operation(&head, atoi(data));
 		}
 		else
-			operation(&head, line_number);	
+			operation(&head, line_number);
 
 		return (0);
 	}

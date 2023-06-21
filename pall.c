@@ -9,3 +9,6 @@
  * Return: Nothing
  */
 void pall(stack_t **stack, unsigned int line_number)
+{
+	printf("from pall yaay\n");
+}
