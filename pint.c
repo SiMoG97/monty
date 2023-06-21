@@ -10,9 +10,11 @@
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	(void) line_number;
-	(void) stack;
-
+if (stack == NULL || *stack == NULL)
+{
+	error_handler(stack, ERROR_PINT, line_number, NULL, NULL);
+}
+printf("%d\n", (*stack)->n);
 }
 
 
