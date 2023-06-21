@@ -20,6 +20,10 @@ void (*select_op(char *s))(stack_t **, unsigned int)
 		{ "pop", pop },
 		{ "add", add },
 		{ "nop", nop },
+		{ "sub", sub },
+		{ "div", div },
+		{ "mul", mul },
+		{ "mod", mod },
 		{ NULL, NULL }
 	};
 
