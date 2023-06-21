@@ -10,10 +10,17 @@
  */
 void add(stack_t **stack, unsigned int line_number)
 {
-	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	stack_t *top, *second;
+	int sum = 0;
 
+	if (!(*stack) || !(*stack)->next)
 		error_handler(stack, ERROR_ADD, line_number, NULL, NULL);
+	top = *stack;
+	second = (*stack)->next;
+	sum = top->n + second->n;
+	second->n = sum;
 
-	(*stack)->next->next->n += (*stack)->next->n;
-	pop(stack, line_number);
+	top->next = second->next;
+	free(top);
+	*stack = second;
 }
