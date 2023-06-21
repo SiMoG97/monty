@@ -28,7 +28,7 @@ void error_handler(stack_t **head, int errno,
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_num);
 	else if (errno == ERROR_ADD)
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_num);
-	
+
 	free_stack(head);
 	if (line)
 		free(line);
