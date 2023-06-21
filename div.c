@@ -15,10 +15,14 @@ void _div(stack_t **stack, unsigned int line_number)
 	int sum = 0;
 
 	if (!(*stack) || !(*stack)->next)
-		error_handler(stack, ERROR_ADD, line_number, NULL, NULL);
+		error_handler(stack, ERROR_DIV, line_number, NULL, NULL);
+
+	if ((*stack)->n == 0)
+		error_handler(stack, ERROR_DIV_BY_ZERO, line_number, NULL, NULL);
+
 	top = *stack;
 	second = (*stack)->next;
-	sum = top->n + second->n;
+	sum = second->n / top->n;
 	second->n = sum;
 
 	top->next = second->next;
