@@ -72,8 +72,6 @@ void free_stack(stack_t **head);
 void error_handler(stack_t **head, int errno,
 		unsigned int line_num, char *line, char *op_code);
 void (*select_op(char *s))(stack_t **, unsigned int);
-int pint_er(unsigned int line_number);
 
-void set_op_tok_error(int error_code);
 
 #endif
