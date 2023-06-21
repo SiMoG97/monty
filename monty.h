@@ -12,6 +12,7 @@
 
 #define VALID_PUSH	0
 #define ERROR_PUSH	500
+#define ERROR_MALLOC	501 
 
 
 /**

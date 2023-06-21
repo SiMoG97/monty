@@ -8,7 +8,19 @@
  *
  * Return: Nothing
  */
+
 void pall(stack_t **stack, unsigned int line_number)
 {
-	printf("from pall yaay\n");
+	stack_t *curr = NULL;
+	(void) line_number;
+
+	if (!(*stack))
+		return;
+
+	curr = *stack;
+	while (curr)
+	{
+		printf("%d\n", curr->n);
+		curr = curr->next;
+	}
 }

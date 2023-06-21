@@ -12,7 +12,9 @@
 void error_handler(int errno, unsigned int line_num, char *line)
 {
 	if (errno == ERROR_PUSH)
-		fprintf(stderr, "L%u: usage: push integer", line_num);
+		fprintf(stderr, "L%u: usage: push integer\n", line_num);
+	else if (errno == ERROR_MALLOC)
+		fprintf(stderr, "Error: malloc failed\n");
 
 	free_stack();
 	if (line)
