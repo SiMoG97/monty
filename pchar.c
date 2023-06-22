@@ -6,16 +6,27 @@
  */
 void monty_pchar(stack_t **stack, unsigned int line_number)
 {
-	if ((*stack)->next == NULL)
+	int node;
+	(void) line_number;
+
+	if (*stack == NULL || stack == NULL)
 	{
 		error_handler(stack, ERROR_PCHAR, line_number, NULL, NULL);
-
 	}
-	if ((*stack)->next->n < 0 || (*stack)->next->n > 127)
+	node = (*stack)->n;
+	if (node >= 'a' && node <= 'z')
+	{
+		putchar(node);
+		printf("\n");
+	}
+	else if (node >= 'A' && node <= 'Z')
+	{
+		putchar(node);
+		printf("\n");
+	}
+	else
 	{
 		error_handler(stack, ERROR_PCHAR, line_number, NULL, NULL);
-
 	}
-
-	printf("%c\n", (*stack)->next->n);
 }
+
