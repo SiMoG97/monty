@@ -1,7 +1,8 @@
 #include "monty.h"
 
 /**
- * pchar - adds the top two elements of the stack
+ * pchar - The integer stored at the top of the stack is treated
+ *	as the ascii value of the character to be printed
  *
  * @stack: Double pointer to the stack
  * @line_number: Line number of the command in the source file

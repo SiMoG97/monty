@@ -25,6 +25,7 @@ void (*select_op(char *s))(stack_t **, unsigned int)
 		{ "mul", mul },
 		{ "mod", mod },
 		{ "pchar", pchar },
+		{ "pstr", pstr },
 		{ NULL, NULL }
 	};
 
