@@ -38,6 +38,10 @@ void error_handler(stack_t **head, int errno,
 		fprintf(stderr, "L%u: can't mul, stack too short\n", line_num);
 	else if (errno == ERROR_MOD)
 		fprintf(stderr, "L%u: can't mod, stack too short\n", line_num);
+	else if (errno == ERROR_PCHAR)
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_num);
+	else if (errno == ERROR_ASCII)
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_num);
 
 	free_stack(head);
 	if (line)

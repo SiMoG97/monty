@@ -23,7 +23,8 @@
 #define ERROR_MUL		509
 #define ERROR_MOD		510
 #define ERROR_DIV_BY_ZERO	511
-
+#define ERROR_ASCII		512
+#define ERROR_PCHAR		513 
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -70,6 +71,7 @@ void sub(stack_t **stack, unsigned int line_number);
 void _div(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
 
 int is_valid_data(char *data);
 bool digits_check(char *str);
